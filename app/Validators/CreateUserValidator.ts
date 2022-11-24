@@ -13,7 +13,7 @@ export default class CreateUserValidator {
     password: schema.string([rules.minLength(6)]),
     first_name: schema.string(),
     last_name: schema.string(),
-    age: schema.number([rules.minLength(3)]),
+    age: schema.number(),
     address: schema.string(),
   })
 
