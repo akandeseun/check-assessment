@@ -5,13 +5,13 @@ export default class UpdateProfileValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    username: schema.string.nullableAndOptional({ trim: true }, [
+    username: schema.string.optional({ trim: true }, [
       rules.unique({ table: 'users', column: 'username' }),
     ]),
-    first_name: schema.string.nullableAndOptional(),
-    last_name: schema.string.nullableAndOptional(),
-    age: schema.number.nullableAndOptional(),
-    address: schema.string.nullableAndOptional(),
+    first_name: schema.string.optional(),
+    last_name: schema.string.optional(),
+    age: schema.number.optional(),
+    address: schema.string.optional(),
   })
 
   public messages: CustomMessages = {}
