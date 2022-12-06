@@ -12,12 +12,6 @@ export default class extends BaseSchema {
       table.dateTime('date_time_due')
       table.dateTime('date_time_returned')
       table.integer('points')
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
     })
   }
 
