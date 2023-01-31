@@ -14,5 +14,7 @@ export default class UpdateProfileValidator {
     address: schema.string.optional(),
   })
 
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    'username.unique': 'username already exists',
+  }
 }
