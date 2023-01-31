@@ -10,7 +10,6 @@ export default class extends BaseSchema {
       table.integer('edition')
       table.string('description')
       table.string('prologue')
-      table.string('access_level')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

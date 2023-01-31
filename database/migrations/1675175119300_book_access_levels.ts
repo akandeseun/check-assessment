@@ -1,13 +1,11 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'plans'
+  protected tableName = 'book_access_levels'
 
-  public async up() {
+  public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.uuid('id').primary()
-      table.string('name').notNullable()
-      table.string('duration')
+      table.increments('id')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
@@ -17,7 +15,7 @@ export default class extends BaseSchema {
     })
   }
 
-  public async down() {
+  public async down () {
     this.schema.dropTable(this.tableName)
   }
 }
