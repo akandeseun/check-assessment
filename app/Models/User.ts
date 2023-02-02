@@ -18,18 +18,6 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public first_name: string
-
-  @column()
-  public last_name: string
-
-  @column()
-  public age: number
-
-  @column()
-  public address: string
-
-  @column()
   public rememberMeToken: string | null
 
   @column.dateTime({ autoCreate: true })
@@ -37,11 +25,6 @@ export default class User extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
-
-  // Relationships
-  @hasMany(() => Book, {
-    foreignKey:''
-  })
 
   // Hooks
   @beforeSave()
