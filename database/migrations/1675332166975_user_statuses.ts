@@ -6,8 +6,8 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.bigIncrements('id').primary()
-      table.uuid('user').references('users.id')
-      table.uuid('status').references('statuses.id')
+      table.uuid('user_id').references('users.id')
+      table.uuid('status_id').references('statuses.id')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
