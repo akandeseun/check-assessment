@@ -6,8 +6,8 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.bigIncrements('id').primary()
-      table.uuid('book').references('books.id').unique()
-      table.uuid('user').references('users.id')
+      table.uuid('book_id').references('books.id').unique()
+      table.uuid('user_id').references('users.id')
       table.dateTime('date_time_borrowed')
       table.dateTime('date_time_due')
       table.dateTime('date_time_returned')
