@@ -11,10 +11,6 @@ export default class CreateUserValidator {
       rules.unique({ table: 'users', column: 'email' }),
     ]),
     password: schema.string([rules.minLength(6)]),
-    first_name: schema.string(),
-    last_name: schema.string(),
-    age: schema.number(),
-    address: schema.string(),
   })
 
   public messages: CustomMessages = {
@@ -22,6 +18,5 @@ export default class CreateUserValidator {
     'email.unique': 'User exists with email',
     'username.unique': 'username taken',
     'password.minLength': 'Password cannot be less than six(6) characters',
-    'age.minLength': 'Age cannot be less than three(3) characters',
   }
 }
