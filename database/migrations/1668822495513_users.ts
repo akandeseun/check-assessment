@@ -9,10 +9,6 @@ export default class extends BaseSchema {
       table.string('username').notNullable().unique()
       table.string('email', 255).notNullable().unique()
       table.string('password', 180).notNullable()
-      table.string('first_name').notNullable()
-      table.string('last_name').notNullable()
-      table.integer('age').notNullable()
-      table.string('address').notNullable()
       table.string('remember_me_token').nullable()
 
       /**

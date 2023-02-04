@@ -1,11 +1,12 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { v4 as uuidv4 } from 'uuid'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import Book from './Book'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public id: string
 
   @column()
   public username: string
@@ -15,18 +16,6 @@ export default class User extends BaseModel {
 
   @column({ serializeAs: null })
   public password: string
-
-  @column()
-  public first_name: string
-
-  @column()
-  public last_name: string
-
-  @column()
-  public age: number
-
-  @column()
-  public address: string
 
   @column()
   public rememberMeToken: string | null
