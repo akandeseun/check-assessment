@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { v4 as uuidv4 } from 'uuid'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import Profile from './Profile'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -26,6 +27,7 @@ export default class User extends BaseModel {
   public updatedAt: DateTime
 
   // Hooks
+  // encrypt password
   @beforeSave()
   public static async hashPassword(user: User) {
     if (user.$dirty.password) {
@@ -33,8 +35,17 @@ export default class User extends BaseModel {
     }
   }
 
+  // assign uuid
   @beforeSave()
   public static assignUuid(user: User) {
     user.id = uuidv4()
   }
+
+  // Relationships
+
+  // User -> Profile
+  @hasOne(() => Profile, {
+    foreignKey: 'user_id',
+  })
+  public profile: HasOne<typeof Profile>
 }

@@ -4,6 +4,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 export default class CreateUserValidator {
   constructor(protected ctx: HttpContextContract) {}
 
+  // Schema Routes
   public schema = schema.create({
     username: schema.string({ trim: true }, [rules.unique({ table: 'users', column: 'username' })]),
     email: schema.string({ trim: true }, [
