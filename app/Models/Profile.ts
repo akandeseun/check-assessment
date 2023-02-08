@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { v4 as uuidv4 } from 'uuid'
+import { BaseModel, BelongsTo, belongsTo, column, beforeSave } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Profile extends BaseModel {
@@ -26,6 +27,12 @@ export default class Profile extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  // Hooks
+  @beforeSave()
+  public static assignUuid(profile: Profile) {
+    profile.id = uuidv4()
+  }
 
   // Relationships
   @belongsTo(() => User, {
