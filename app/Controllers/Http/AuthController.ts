@@ -35,7 +35,9 @@ export default class AuthController {
         token,
       })
     } catch (error) {
-      return response.unauthorized('error')
+      return response.status(401).json({
+        msg: 'Unauthorized access',
+      })
     }
   }
 }

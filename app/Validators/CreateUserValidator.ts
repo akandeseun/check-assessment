@@ -6,10 +6,13 @@ export default class CreateUserValidator {
 
   // Schema Routes
   public schema = schema.create({
-    username: schema.string([rules.unique({ table: 'users', column: 'username' }), rules.trim()]),
+    username: schema.string([
+      rules.unique({ table: 'users', column: 'username', caseInsensitive: true }),
+      rules.trim(),
+    ]),
     email: schema.string([
       rules.email(),
-      rules.unique({ table: 'users', column: 'email' }),
+      rules.unique({ table: 'users', column: 'email', caseInsensitive: true }),
       rules.trim(),
     ]),
     password: schema.string([rules.minLength(6)]),
