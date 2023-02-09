@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { v4 as uuidv4 } from 'uuid'
-import { BaseModel, column, beforeSave, hasOne, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, beforeSave, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Role extends BaseModel {
@@ -26,6 +26,7 @@ export default class Role extends BaseModel {
   }
 
   // Relationships
+  // User -> Role
   @hasMany(() => User, {
     foreignKey: 'role_id',
   })
