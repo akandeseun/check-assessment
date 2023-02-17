@@ -35,8 +35,6 @@ export default class Profile extends BaseModel {
   }
 
   // Relationships
-  @belongsTo(() => User, {
-    foreignKey: 'user_id',
-  })
+  @belongsTo(() => User)
   public user: BelongsTo<typeof User>
 }
