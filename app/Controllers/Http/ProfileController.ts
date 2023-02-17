@@ -11,7 +11,7 @@ export default class ProfileController {
     const user = await User.findOrFail(currentUserId)
     const profile = await Profile.create(payload)
     await profile.related('user').associate(user)
-    // await profile.load('user')
+    await profile.load('user')
     return response.status(200).json({ profile })
   }
 }

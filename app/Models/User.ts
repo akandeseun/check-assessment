@@ -56,9 +56,7 @@ export default class User extends BaseModel {
   // Relationships
 
   // User -> Profile
-  @hasOne(() => Profile, {
-    foreignKey: 'user_id',
-  })
+  @hasOne(() => Profile)
   public profile: HasOne<typeof Profile>
 
   // User -> Role
